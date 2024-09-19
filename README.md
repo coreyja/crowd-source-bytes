@@ -5,7 +5,7 @@ Welcome to Open Source Bytes, a collection of fun and educational Rust games! �
 Play the Bytes on [here](https://coreyja.com/bytes)!
 
 #### TL:DR
-- Bytes are Rust coding games designed for pure Rust development entertainment! 🚀
+- Bytes are Rust coding games designed for pure Rust learning! 🚀
 - We love Rust and want everyone else to learn. What better way to learn than by reading Rust code and guessing what bugs there are? 🐛
 - We want you to contribute your own Bytes to make the Rust challenges even more fun! 🤝 Be creative! 
 
@@ -13,7 +13,7 @@ Play the Bytes on [here](https://coreyja.com/bytes)!
 
 ## Contribute
 
-We want you to contribute your own Bytes to make the Rust challenges even more fun! 🤝 Be creative! Build whatever you want! Just make sure you follow these rules:
+🤝 Build whatever you want! Just make sure you follow these rules:
 
 1. Be unique 🌟
 2. Code must compile! ✅
@@ -39,10 +39,8 @@ That's it! The world is your oyster! 🌍
 Here are some ideas to get you started:
 
 - Rusty Maze: A text-based maze solver 🧭
-- Crab Catcher: A simple fishing game 🦀🎣
 - Ferris' Flight: A side-scrolling adventure ✈️
-- Oxidized Puzzler: A logic puzzle game 🧠
-- Rust Belt: A resource management simulation 🏭
+- Oxidized
 
 ## Making a PR
 
