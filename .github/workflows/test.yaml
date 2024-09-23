@@ -1,52 +1,47 @@
-use clap::{Parser, Subcommand};
-use std::fs::{read_to_string, OpenOptions};
-use std::io::Write;
+name: Rust
 
-#[derive(Parser)]
-#[command(name = "Todo")]
-#[command(about = "A simple to-do list CLI app")]
-struct Cli {
-    #[command(subcommand)]
-    command: Commands,
-}
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
-#[derive(Subcommand)]
-enum Commands {
-    Add {
-        #[arg()]
-        task: String,
-    },
-    List,
-}
+env:
+  CARGO_TERM_COLOR: always
 
-fn main() {
-    let cli = Cli::parse();
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-    match &cli.command {
-        Commands::Add { task } => add_task(task),
-        Commands::List => list_tasks(),
-    }
-}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: cargo build --verbose --no-default-features
+      - name: Run tests
+        run: cargo test --verbose --no-default-features --lib
 
-fn add_task(task: &str) {
-    let mut file = OpenOptions::new()
-        .create(true)
-        .append(true)
-        .open("todo.txt")
-        .expect("Failed to open file");
+  clippy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+          components: clippy
+      - name: Run Clippy
+        uses: actions-rs/cargo@v1
+        with:
+          command: clippy
+          args: -- -D warnings
 
-    writeln!(file, "{}", task).expect("Failed to write to file");
-    println!("Added task: {}", task);
-}
-
-fn list_tasks() {
-    let content = read_to_string("todo.txt").expect("Failed to read file");
-
-    if content.is_empty() {
-        println!("No tasks found.");
-    } else {
-        for (index, task) in content.lines().enumerate() {
-            println!("{}: {}", index, task);
-        }
-    }
-}
+  fmt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: Format
+        run: cargo fmt --all --check
