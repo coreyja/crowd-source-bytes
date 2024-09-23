@@ -36,11 +36,11 @@ That's it! The world is your oyster! 🌍
 
 ## Example Bytes
 
-Here are some ideas to get you started:
+Here are some ideas to get you started. Each Byte is designed to be a small, self-contained project that is easy to understand and work with:
 
 - Rusty Maze: A text-based maze solver 🧭
 - Ferris' Flight: A side-scrolling adventure ✈️
-- Oxidized
+- Oxidized: A logic puzzle game 🧩
 
 ## Making a PR
 
