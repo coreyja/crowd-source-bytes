@@ -32,7 +32,7 @@ jobs:
             if [ -f "${dir}Cargo.toml" ]; then
               echo "Building in ${dir}"
               cd "${dir}"
-              cargo build --verbose --no-default-features
+              cargo build --verbose
               cd ..
             fi
           done
@@ -43,7 +43,7 @@ jobs:
             if [ -f "${dir}Cargo.toml" ]; then
               echo "Testing in ${dir}"
               cd "${dir}"
-              cargo test --verbose --no-default-features --lib
+              cargo test --verbose --lib
               cd ..
             fi
           done
