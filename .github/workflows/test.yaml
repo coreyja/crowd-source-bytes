@@ -76,5 +76,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: Rename cargo.toml if exists
+        run: |
+          if [ -f "cargo.toml" ]; then
+            mv cargo.toml Cargo.toml
+          fi
       - name: Format
-        run: cargo fmt --all --check
+        run: |
+          for dir in */; do
+            if [ -f "${dir}Cargo.toml" ]; then
+              echo "Formatting in ${dir}"
+              cd "${dir}"
+              cargo fmt --all --check
+              cd ..
+            fi
+          done
