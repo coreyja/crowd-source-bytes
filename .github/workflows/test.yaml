@@ -32,7 +32,7 @@ jobs:
             if [ -f "${dir}Cargo.toml" ]; then
               echo "Building in ${dir}"
               cd "${dir}"
-              cargo build --verbose
+              cargo build --verbose 
               cd ..
             fi
           done
@@ -43,7 +43,18 @@ jobs:
             if [ -f "${dir}Cargo.toml" ]; then
               echo "Testing in ${dir}"
               cd "${dir}"
-              cargo test --verbose --lib
+              echo "Contents of Cargo.toml:"
+              cat Cargo.toml
+              if grep -q "\[lib\]" Cargo.toml; then
+                echo "Running library tests"
+                cargo test --verbose  --lib
+              elif grep -q "\[\[bin\]\]" Cargo.toml; then
+                echo "Running binary tests"
+                cargo test --verbose 
+              else
+                echo "No library or binary target found, running default tests"
+                cargo test --verbose 
+              fi
               cd ..
             fi
           done
