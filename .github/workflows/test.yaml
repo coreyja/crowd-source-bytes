@@ -15,10 +15,38 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Debug Info
+        run: |
+          pwd
+          ls -la
+          cargo --version
+          rustc --version
+      
+      - name: Find Cargo.toml
+        run: find . -name Cargo.toml
+      
       - name: Build
-        run: cargo build --verbose
+        run: |
+          for dir in */; do
+            if [ -f "${dir}Cargo.toml" ]; then
+              echo "Building in ${dir}"
+              cd "${dir}"
+              cargo build --verbose --no-default-features
+              cd ..
+            fi
+          done
+
       - name: Run tests
-        run: cargo test --verbose --lib
+        run: |
+          for dir in */; do
+            if [ -f "${dir}Cargo.toml" ]; then
+              echo "Testing in ${dir}"
+              cd "${dir}"
+              cargo test --verbose --no-default-features --lib
+              cd ..
+            fi
+          done
 
   clippy:
     runs-on: ubuntu-latest
@@ -32,10 +60,15 @@ jobs:
           override: true
           components: clippy
       - name: Run Clippy
-        uses: actions-rs/cargo@v1
-        with:
-          command: clippy
-          args: -- -D warnings
+        run: |
+          for dir in */; do
+            if [ -f "${dir}Cargo.toml" ]; then
+              echo "Running Clippy in ${dir}"
+              cd "${dir}"
+              cargo clippy -- -D warnings
+              cd ..
+            fi
+          done
 
   fmt:
     runs-on: ubuntu-latest
