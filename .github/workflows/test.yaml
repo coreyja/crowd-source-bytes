@@ -1,52 +1,104 @@
-use clap::{Parser, Subcommand};
-use std::fs::{read_to_string, OpenOptions};
-use std::io::Write;
+name: Rust
 
-#[derive(Parser)]
-#[command(name = "Todo")]
-#[command(about = "A simple to-do list CLI app")]
-struct Cli {
-    #[command(subcommand)]
-    command: Commands,
-}
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
-#[derive(Subcommand)]
-enum Commands {
-    Add {
-        #[arg()]
-        task: String,
-    },
-    List,
-}
+env:
+  CARGO_TERM_COLOR: always
 
-fn main() {
-    let cli = Cli::parse();
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-    match &cli.command {
-        Commands::Add { task } => add_task(task),
-        Commands::List => list_tasks(),
-    }
-}
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Debug Info
+        run: |
+          pwd
+          ls -la
+          cargo --version
+          rustc --version
+      
+      - name: Find Cargo.toml
+        run: find . -name Cargo.toml
+      
+      - name: Build
+        run: |
+          for dir in */; do
+            if [ -f "${dir}Cargo.toml" ]; then
+              echo "Building in ${dir}"
+              cd "${dir}"
+              cargo build --verbose 
+              cd ..
+            fi
+          done
 
-fn add_task(task: &str) {
-    let mut file = OpenOptions::new()
-        .create(true)
-        .append(true)
-        .open("todo.txt")
-        .expect("Failed to open file");
+      - name: Run tests
+        run: |
+          for dir in */; do
+            if [ -f "${dir}Cargo.toml" ]; then
+              echo "Testing in ${dir}"
+              cd "${dir}"
+              echo "Contents of Cargo.toml:"
+              cat Cargo.toml
+              if grep -q "\[lib\]" Cargo.toml; then
+                echo "Running library tests"
+                cargo test --verbose  --lib
+              elif grep -q "\[\[bin\]\]" Cargo.toml; then
+                echo "Running binary tests"
+                cargo test --verbose 
+              else
+                echo "No library or binary target found, running default tests"
+                cargo test --verbose 
+              fi
+              cd ..
+            fi
+          done
 
-    writeln!(file, "{}", task).expect("Failed to write to file");
-    println!("Added task: {}", task);
-}
+  clippy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+          components: clippy
+      - name: Run Clippy
+        run: |
+          for dir in */; do
+            if [ -f "${dir}Cargo.toml" ]; then
+              echo "Running Clippy in ${dir}"
+              cd "${dir}"
+              cargo clippy -- -D warnings
+              cd ..
+            fi
+          done
 
-fn list_tasks() {
-    let content = read_to_string("todo.txt").expect("Failed to read file");
-
-    if content.is_empty() {
-        println!("No tasks found.");
-    } else {
-        for (index, task) in content.lines().enumerate() {
-            println!("{}: {}", index, task);
-        }
-    }
-}
+  fmt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: Rename cargo.toml if exists
+        run: |
+          if [ -f "cargo.toml" ]; then
+            mv cargo.toml Cargo.toml
+          fi
+      - name: Format
+        run: |
+          for dir in */; do
+            if [ -f "${dir}Cargo.toml" ]; then
+              echo "Formatting in ${dir}"
+              cd "${dir}"
+              cargo fmt --all --check
+              cd ..
+            fi
+          done
