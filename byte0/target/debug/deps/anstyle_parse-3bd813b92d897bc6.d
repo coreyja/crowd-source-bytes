@@ -1,9 +1,0 @@
-/Users/seifmamdouh/crowd-sourced-bytes/byte0/target/debug/deps/libanstyle_parse-3bd813b92d897bc6.rmeta: /Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/lib.rs /Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/params.rs /Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/state/mod.rs /Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/state/definitions.rs /Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/state/table.rs
-
-/Users/seifmamdouh/crowd-sourced-bytes/byte0/target/debug/deps/anstyle_parse-3bd813b92d897bc6.d: /Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/lib.rs /Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/params.rs /Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/state/mod.rs /Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/state/definitions.rs /Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/state/table.rs
-
-/Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/lib.rs:
-/Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/params.rs:
-/Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/state/mod.rs:
-/Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/state/definitions.rs:
-/Users/seifmamdouh/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.5/src/state/table.rs:
