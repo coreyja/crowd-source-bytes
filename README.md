@@ -13,7 +13,7 @@ Play the Bytes on [here](https://coreyja.com/bytes)!
 
 ## 🤝 Contribute
 
-Build whatever you want! Just make sure you follow these rules:
+Build small Rust CLI projects! Just make sure you follow these rules:
 
 1. Be unique 🌟
 2. Code must compile! ✅
