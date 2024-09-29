@@ -28,7 +28,7 @@ Here are some ideas to get you started. Each Byte is designed to be a small, sel
 - Weather Forecasting: Input location and get a simulated weather forecast.
 
 
-### 🚀 Getting Started
+## 🚀 Getting Started
 
 If you have an idea for a new Byte and want to discuss it before writing code, you can start by opening an issue:
 
