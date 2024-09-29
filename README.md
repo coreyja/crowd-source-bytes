@@ -72,7 +72,7 @@ If you have an idea for a new Byte and want to discuss it before writing code, y
    ```
 3. Open `src/main.rs` and write your code for your byte.
 
-## Prepare Your Contribution
+## 🎉 Prepare Your Contribution
 
 ### Submit a Pull Request
 
