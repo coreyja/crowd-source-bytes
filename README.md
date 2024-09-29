@@ -41,8 +41,11 @@ If you have an idea for a new Byte and want to discuss it before writing code, y
 
 Creating a new Byte is simple: 
 
+- Clone the Repo
+   - `git checkout -b <yourname>/main/<named-of-your-byte>`
+
 - Create a new Rust project
-    - `cargo new <name of your project>`
+    - `cargo new <name of your byte>`
     - `cd <name of your project>`
     - navigate to `src/main.rs`
     - write your code!
