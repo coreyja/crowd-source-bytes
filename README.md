@@ -18,7 +18,7 @@ Build small Rust CLI projects! Just make sure you follow these rules:
 1. Be unique 🌟
 2. Code must compile! ✅
 3. Add Tests to your code 🧪
-4. Make it short and sweet! We want other students to be able to read and understand these in one go
+4. Make it short and sweet! We want other students to be able to read and understand these in one go 💪
 
 ## 💡 Example Bytes
 
