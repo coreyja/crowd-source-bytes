@@ -18,6 +18,7 @@ Build small Rust CLI projects! Just make sure you follow these rules:
 1. Be unique 🌟
 2. Code must compile! ✅
 3. Add Tests to your code 🧪
+4. Make it short and sweet! We want other students to be able to read and understand these in one go
 
 ## 💡 Example Bytes
 
@@ -66,11 +67,12 @@ If you have an idea for a new Byte and want to discuss it before writing code, y
    ```
    cargo new <name-of-your-byte>
    ```
-2. Navigate to your new byte project:
+2. Add the name of your project to the `members` list in the root `Cargo.toml` file. This sets up a Cargo workspace with all the packages together! More info about workspaces here: https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html
+3. Navigate to your new byte project:
    ```
    cd <name-of-your-byte>
    ```
-3. Open `src/main.rs` and write your code for your byte.
+4. Open `src/main.rs` and write your code for your byte.
 
 ## 🎉 Prepare Your Contribution
 
