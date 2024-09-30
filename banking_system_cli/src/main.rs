@@ -121,6 +121,12 @@ fn withdraw(accounts: &mut Vec<Account>) {
     }
 }
 
+/* 
+fn interest(accounts: &mut Vec<Account>) {
+    // TODO: Implement helper function for interest, and time travel features
+}
+
+*/
 fn print_all_accounts(accounts: &Vec<Account>) {
     for account in accounts {
         println!("Account Number: {}", account.account_number);
