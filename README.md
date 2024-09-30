@@ -18,7 +18,7 @@ Build small Rust CLI projects! Just make sure you follow these rules:
 1. Be unique 🌟
 2. Code must compile! ✅
 3. Add Tests to your code 🧪
-4. Make it short and sweet! We want other students to be able to read and understand these in one go
+4. Make it short and sweet! We want other students to be able to read and understand these in one go 💪
 
 ## 💡 Example Bytes
 
@@ -27,6 +27,7 @@ Here are some ideas to get you started. Each Byte is designed to be a small, sel
 - Banking System: Manage accounts, transactions, balances and interest rates.
 - AI Coffee Shop: Utilize LLM that can take customer orders through the CLI.
 - Weather Forecasting: Input location and get a simulated weather forecast.
+- Explore more [Byte Ideas](https://github.com/coreyja/crowd-source-bytes/issues)! Feel free to take on any idea! Just leave a comment saying, "I'll work on this!" You'll have one week to complete it once you claim an idea.
 
 
 ## 🚀 Getting Started
