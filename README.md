@@ -38,7 +38,7 @@ If you have an idea for a new Byte and want to discuss it before writing code, y
    - Navigate to the [Issues](https://github.com/coreyja/crowd-source-bytes/issues) tab.
    - Click on **New Issue** and select the **Brainstorming** label.
    - Describe your idea in detail to allow others to provide feedback and suggestions.
-   - See an example of a brainstorming issue [here](https://github.com/coreyja/crowd-source-bytes/issues)
+   - See an example of a brainstorming issue [here](https://github.com/coreyja/crowd-source-bytes/issues/2)
 
 2. **Collaborate and Refine**  
    - Engage with the community by responding to comments.
