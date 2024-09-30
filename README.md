@@ -27,6 +27,7 @@ Here are some ideas to get you started. Each Byte is designed to be a small, sel
 - Banking System: Manage accounts, transactions, balances and interest rates.
 - AI Coffee Shop: Utilize LLM that can take customer orders through the CLI.
 - Weather Forecasting: Input location and get a simulated weather forecast.
+- Explore more [Byte Ideas](https://github.com/coreyja/crowd-source-bytes/issues)! Feel free to take on any idea! Just leave a comment saying, "I'll work on this!" You'll have one week to complete it once you claim an idea.
 
 
 ## 🚀 Getting Started
@@ -37,7 +38,7 @@ If you have an idea for a new Byte and want to discuss it before writing code, y
    - Navigate to the [Issues](https://github.com/coreyja/crowd-source-bytes/issues) tab.
    - Click on **New Issue** and select the **Brainstorming** label.
    - Describe your idea in detail to allow others to provide feedback and suggestions.
-   - See an example of a brainstorming issue [here](https://github.com/coreyja/crowd-source-bytes/issues/2)
+   - See an example of a brainstorming issue [here](https://github.com/coreyja/crowd-source-bytes/issues)
 
 2. **Collaborate and Refine**  
    - Engage with the community by responding to comments.
