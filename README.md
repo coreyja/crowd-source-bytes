@@ -93,7 +93,10 @@ If you have an idea for a new Byte and want to discuss it before writing code, y
    - A description of the test plan
    - Expected output
 6. Leave comments in the diff indicating where you want the "bug" to be 🐞
-7. Submit your Pull Request for review.
+7. Run `cargo fmt` to make sure your code is formatted according to Rust formatting rules
+8. Run `cargo clippy` to make sure it passes all the lints defined. Clippy is also a great tool for learning new tips and tricks in Rust!
+9. Run `cargo test` and make sure it passes all the tests you wrote
+10. Submit your Pull Request for review.
 
 Remember, the goal is to create fun, educational challenges for the Rust community! 🎓
 
