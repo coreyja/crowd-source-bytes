@@ -1,20 +1,19 @@
 pub mod db;
 use db::{connect_db, fetch_comments_by_post, fetch_post_ids};
 use std::error::Error;
+use color_eyre::eyre::Result;
 
 #[tokio::main] // This attribute is crucial for async main
-async fn main() -> Result<(), Box<dyn Error>> {
-    // Connect to the database
+async fn main() -> Result<()> {
+
     let (client, connection_handle) = connect_db().await?;
 
-    // Spawn the connection handle to run concurrently
     tokio::spawn(async move {
         if let Err(e) = connection_handle.await {
             eprintln!("Connection error: {}", e);
         }
     });
 
-    // Fetch all post IDs
     let post_ids = fetch_post_ids(&client).await?;
     println!("Fetched {} posts.", post_ids.len());
 
