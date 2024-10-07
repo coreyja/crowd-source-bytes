@@ -1,4 +1,6 @@
 use tokio_postgres::{Error, NoTls};
+use dotenv::dotenv;
+use std::env;
 
 pub async fn connect_db() -> Result<
     (
@@ -7,8 +9,16 @@ pub async fn connect_db() -> Result<
     ),
     Error,
 > {
+    // Load .env file
+    dotenv().ok();
+
+    // Get environment variables
+    let username = env::var("username").expect("username not set in .env");
+    let password = env::var("password").expect("password not set in .env");
+    let dbname = env::var("dbname").expect("dbname not set in .env");
+
     let (client, connection) = tokio_postgres::connect(
-        "host=localhost user=seifmamdouh password=10122001sDM#$ dbname=n_plus_one",
+        &format!("host=localhost user={} password={} dbname={}", username, password, dbname),
         NoTls,
     )
     .await?;
