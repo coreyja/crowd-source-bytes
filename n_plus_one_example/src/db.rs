@@ -9,7 +9,7 @@ pub async fn connect_db() -> Result<
     ),
     Error,
 > {
-    // Load .env file
+    
     dotenv().ok();
 
     // Get environment variables
@@ -26,7 +26,6 @@ pub async fn connect_db() -> Result<
     )
     .await?;
 
-    // Spawn the connection to run concurrently
     let handle = tokio::spawn(async move {
         if let Err(e) = connection.await {
             eprintln!("Connection error: {}", e);
