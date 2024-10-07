@@ -1,5 +1,5 @@
 pub mod db;
-use db::{connect_db, fetch_post_ids, fetch_comments_by_post};
+use db::{connect_db, fetch_comments_by_post, fetch_post_ids};
 use std::error::Error;
 
 #[tokio::main] // This attribute is crucial for async main
