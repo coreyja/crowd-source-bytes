@@ -1,10 +1,9 @@
 pub mod db;
-use db::{connect_db, fetch_comments_by_post, fetch_post_ids};
 use color_eyre::eyre::Result;
+use db::{connect_db, fetch_comments_by_post, fetch_post_ids};
 
-#[tokio::main] // This attribute is crucial for async main
+#[tokio::main]
 async fn main() -> Result<()> {
-
     let (client, connection_handle) = connect_db().await?;
 
     tokio::spawn(async move {
