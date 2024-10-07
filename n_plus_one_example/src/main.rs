@@ -1,6 +1,5 @@
 pub mod db;
 use db::{connect_db, fetch_comments_by_post, fetch_post_ids};
-use std::error::Error;
 use color_eyre::eyre::Result;
 
 #[tokio::main] // This attribute is crucial for async main
