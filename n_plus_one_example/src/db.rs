@@ -9,7 +9,6 @@ pub async fn connect_db() -> Result<
     ),
     Error,
 > {
-    
     dotenv().ok();
 
     // Get environment variables
