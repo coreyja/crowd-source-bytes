@@ -1,5 +1,3 @@
 [workspace]
-
-members = [
-    "byte0"
-]
+resolver = "2"
+members = ["byte0"]
