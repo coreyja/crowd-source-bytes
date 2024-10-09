@@ -35,18 +35,28 @@ pub async fn connect_db() -> Result<
     Ok((client, handle))
 }
 
-pub async fn fetch_post_ids(client: &tokio_postgres::Client) -> Result<Vec<i32>, Error> {
-    let rows = client.query("SELECT id FROM posts", &[]).await?;
-    Ok(rows.into_iter().map(|row| row.get(0)).collect())
+pub struct Post {
+    pub id: i32,
+    pub title: String,
 }
 
-pub async fn fetch_comments_by_post(
-    client: &tokio_postgres::Client,
-    post_id: i32,
-) -> Result<Vec<i32>, Error> {
-    let stmt = client
-        .prepare("SELECT id FROM comments WHERE post_id = $1")
-        .await?;
-    let rows = client.query(&stmt, &[&post_id]).await?;
-    Ok(rows.into_iter().map(|row| row.get(0)).collect())
+impl Post {
+    pub async fn fetch_comments(&self, client: &tokio_postgres::Client) -> Result<Vec<i32>, Error> {
+        let stmt = client
+            .prepare("SELECT id FROM comments WHERE post_id = $1")
+            .await?;
+        let rows = client.query(&stmt, &[&self.id]).await?;
+        Ok(rows.into_iter().map(|row| row.get(0)).collect())
+    }
+}
+
+pub async fn fetch_posts(client: &tokio_postgres::Client) -> Result<Vec<Post>, Error> {
+    let rows = client.query("SELECT id, title FROM posts", &[]).await?;
+    Ok(rows
+        .into_iter()
+        .map(|row| Post {
+            id: row.get(0),
+            title: row.get(1),
+        })
+        .collect())
 }
