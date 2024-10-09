@@ -20,7 +20,7 @@ async fn main() -> Result<()> {
 async fn comment_count_per_post(client: &tokio_postgres::Client) -> Result<HashMap<i32, usize>> {
     let posts = fetch_posts(client).await?;
     let mut comment_counts = HashMap::new();
-    
+
     for post in posts {
         let comments = post.fetch_comments(client).await?;
         comment_counts.insert(post.id, comments.len());
